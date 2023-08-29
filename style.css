@@ -244,7 +244,9 @@ header img{
     background: #ff028d;
     border: solid white 3px;
 }
-
+.skills-card-name{
+    color: white;
+}
 .skills-card{
     margin-bottom: 20vh;
 }
