@@ -55,13 +55,19 @@ header img{
 }
 
 #nav-menu a:hover{
-    color: #10151a;  
+    color: white;  
 }
 
 #nav-menu a.active{
-    color: white;
+    color: #ff028d;
     
 }
+
+#nav-menu a.active:hover{
+    color: white;  
+    
+}
+
 
 #menu-icon{
     cursor: pointer;
@@ -539,7 +545,7 @@ header img{
 .calendar{
     width:80%;
     background-color: #ff028d;
-    color:white
+    color:white;
 }
 .github>div>div{
     margin: 10px auto;
