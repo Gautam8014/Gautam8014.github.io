@@ -27,6 +27,7 @@ GitHubCalendar(".calendar", "Gautam8014", { responsive: true });
 GitHubCalendar(".calendar", "Gautam8014", { responsive: true });
 
 
+
 function resume(){
     window.open("https://drive.google.com/file/d/1j3dNEXtqhBOwVfU5nlGcpsv7eVTUzEzi/view?usp=sharing")
 }

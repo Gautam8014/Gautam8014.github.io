@@ -521,6 +521,9 @@ header img{
     color: rgb(36, 36, 36);
     margin-bottom: 30px;
 }
+#gitstatic{
+    display: flex;
+}
 
 
 /* ****************************************************************************************************** */
@@ -545,7 +548,7 @@ header img{
 .calendar{
     width:80%;
     background-color: #ff028d;
-    color:white;
+    color:black;
 }
 .github>div>div{
     margin: 10px auto;
