@@ -1,364 +1,1367 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="shortcut icon" href="https://play-lh.googleusercontent.com/69_YG2leWstfEqXHyW6-2Vyu9TFUNcoqdK-YCxgj624MaFF4ZCPRJSnXnVKns6Hj7w" type="image/x-icon">
-    <title> Gautam | Full Stack Web Developer</title>
-    <link rel="stylesheet" href="style.css">
-    
+    <title>Gautam Singh | SFMC Campaign Specialist & Full Stack Developer</title>
+
+    <style>
+        :root {
+            --bg-dark: #090d16;
+            --bg-card: rgba(18, 24, 38, 0.7);
+            --bg-card-hover: rgba(26, 35, 56, 0.85);
+            --primary: #ff028d;
+            --primary-glow: rgba(255, 2, 141, 0.35);
+            --primary-gradient: linear-gradient(135deg, #ff028d 0%, #7928ca 100%);
+            --sfmc-gradient: linear-gradient(135deg, #00b4d8 0%, #7928ca 100%);
+            --text-main: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border-color: rgba(255, 255, 255, 0.08);
+            --border-highlight: rgba(255, 2, 141, 0.3);
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            list-style: none;
+            text-decoration: none;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image:
+                radial-gradient(circle at 15% 15%, rgba(255, 2, 141, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 65%, rgba(121, 40, 202, 0.08) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-dark); }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--primary); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+        section { padding: 100px 0; position: relative; }
+
+        .section-header { text-align: center; margin-bottom: 60px; }
+
+        .section-subtitle {
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--primary);
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-gradient);
+            margin: 12px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 78px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 800;
+            font-size: 1.35rem;
+            color: var(--text-main);
+        }
+
+        .logo-accent {
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #nav-menu { display: flex; align-items: center; gap: 28px; }
+
+        #nav-menu a.nav-link {
+            font-size: 0.92rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: var(--transition);
+            position: relative;
+            padding: 6px 0;
+        }
+
+        #nav-menu a.nav-link:hover, #nav-menu a.nav-link.active { color: var(--text-main); }
+
+        #nav-menu a.nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0%; height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+            border-radius: 2px;
+        }
+
+        #nav-menu a.nav-link:hover::after, #nav-menu a.nav-link.active::after { width: 100%; }
+
+        .nav-btn { background: transparent; border: none; padding: 0; }
+
+        .nav-btn a.resume-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-gradient);
+            color: #fff !important;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 15px var(--primary-glow);
+            transition: var(--transition);
+        }
+
+        .nav-btn a.resume-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255, 2, 141, 0.5); }
+        .nav-btn a.resume-btn::after { display: none !important; }
+
+        #menu-icon { cursor: pointer; display: none; color: var(--text-main); font-size: 2rem; align-items: center; }
+
+        /* Hero */
+        #home { min-height: 100vh; display: flex; align-items: center; padding-top: 110px; }
+
+        .hero-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 40px; align-items: center; }
+
+        .hero-text-container { display: flex; flex-direction: column; gap: 18px; }
+
+        .badge-greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 2, 141, 0.1);
+            border: 1px solid var(--border-highlight);
+            padding: 8px 16px;
+            border-radius: 30px;
+            color: var(--primary);
+            font-size: 0.85rem;
+            font-weight: 600;
+            width: fit-content;
+        }
+
+        .hero-title { font-size: 3.4rem; font-weight: 800; line-height: 1.1; letter-spacing: -1px; }
+        .hero-title-name { background: var(--primary-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .hero-description { font-size: 1rem; color: var(--text-muted); max-width: 580px; }
+
+        .hero-quick-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 4px;
+        }
+
+        .quick-info-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
+            padding: 8px 14px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .quick-info-pill i { color: var(--primary); font-size: 0.9rem; }
+
+        .hero-actions { display: flex; align-items: center; gap: 16px; margin-top: 8px; flex-wrap: wrap; }
+
+        .btn-primary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--primary-gradient); color: #fff;
+            padding: 14px 26px; border-radius: 30px;
+            font-weight: 600; font-size: 0.95rem;
+            box-shadow: 0 6px 20px var(--primary-glow);
+            transition: var(--transition); border: none; cursor: pointer;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255, 2, 141, 0.5); }
+
+        .btn-secondary {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main); padding: 14px 26px; border-radius: 30px;
+            font-weight: 600; font-size: 0.95rem; transition: var(--transition);
+        }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: rgba(255, 255, 255, 0.2); transform: translateY(-3px); }
+
+        .home-social-wrapper { display: flex; align-items: center; gap: 14px; margin-top: 6px; }
+
+        .social-link-item {
+            width: 44px; height: 44px; border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition); overflow: hidden; padding: 8px;
+        }
+        .social-link-item img { width: 100%; height: 100%; object-fit: contain; filter: brightness(0.9); transition: var(--transition); }
+        .social-link-item:hover { background: rgba(255, 2, 141, 0.15); border-color: var(--primary); transform: translateY(-3px); }
+        .social-link-item:hover img { filter: brightness(1.2); }
+
+        .hero-img-card { position: relative; display: flex; justify-content: center; }
+
+        .hero-img-wrapper {
+            position: relative; width: 300px; height: 360px;
+            border-radius: var(--radius-lg); overflow: hidden;
+            border: 1px solid var(--border-highlight);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            background: var(--bg-card);
+        }
+        .hero-img-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: var(--transition); }
+        .hero-img-wrapper:hover img { transform: scale(1.05); }
+
+        .hero-backdrop-glow {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 340px; height: 340px;
+            background: var(--primary-gradient);
+            opacity: 0.25; filter: blur(70px);
+            border-radius: 50%; z-index: -1;
+        }
+
+        .hero-floating-badge {
+            position: absolute;
+            bottom: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-dark);
+            border: 1px solid var(--border-highlight);
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-main);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+        }
+        .hero-floating-badge i { color: var(--primary); }
+
+        /* About */
+        #about { background: rgba(15, 23, 42, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+
+        .about-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 48px;
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        .about-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--primary-gradient); }
+
+        .about-text {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            line-height: 1.85;
+            margin-bottom: 32px;
+            max-width: 900px;
+        }
+
+        .about-highlights-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .highlight-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            padding: 20px 16px;
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+        .highlight-item:hover { border-color: var(--border-highlight); transform: translateY(-4px); }
+
+        .highlight-item i { font-size: 1.6rem; color: var(--primary); margin-bottom: 10px; display: block; }
+        .highlight-item h4 { font-size: 0.95rem; color: #fff; font-weight: 700; margin-bottom: 4px; }
+        .highlight-item p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Experience Timeline */
+        .timeline { position: relative; max-width: 900px; margin: 0 auto; padding-left: 40px; }
+        .timeline::before { content: ''; position: absolute; top: 6px; bottom: 6px; left: 8px; width: 2px; background: var(--border-color); }
+
+        .timeline-item { position: relative; margin-bottom: 36px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+
+        .timeline-dot {
+            position: absolute; left: -40px; top: 6px;
+            width: 16px; height: 16px; border-radius: 50%;
+            background: var(--primary); box-shadow: 0 0 12px var(--primary);
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 28px;
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+        }
+        .timeline-content:hover { border-color: var(--border-highlight); transform: translateY(-3px); }
+
+        .timeline-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .timeline-title { font-size: 1.25rem; font-weight: 700; color: #fff; }
+        .timeline-role { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-top: 2px; }
+        .timeline-date-badge {
+            background: rgba(255, 2, 141, 0.1);
+            border: 1px solid var(--border-highlight);
+            color: var(--primary);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            font-family: 'Fira Code', monospace;
+            white-space: nowrap;
+        }
+
+        .timeline-list {
+            list-style: none;
+            margin-top: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .timeline-list li {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            display: flex;
+            gap: 10px;
+            line-height: 1.6;
+        }
+        .timeline-list li i { color: var(--primary); margin-top: 4px; font-size: 0.75rem; flex-shrink: 0; }
+
+        .timeline-tools {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px;
+        }
+        .tool-tag {
+            font-size: 0.78rem;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border-color);
+            padding: 5px 12px;
+            border-radius: var(--radius-sm);
+            color: #cbd5e1;
+            font-family: 'Fira Code', monospace;
+        }
+
+        /* Education */
+        .education-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 30px;
+            transition: var(--transition);
+            position: relative;
+        }
+        .education-card:hover { border-color: var(--border-highlight); transform: translateY(-4px); }
+
+        .edu-icon { font-size: 2rem; color: var(--primary); margin-bottom: 16px; }
+        .edu-degree { font-size: 1.15rem; font-weight: 700; color: #fff; margin-bottom: 6px; }
+        .edu-school { font-size: 0.95rem; color: #cbd5e1; font-weight: 600; margin-bottom: 4px; }
+        .edu-field { color: var(--text-muted); font-size: 0.88rem; margin-bottom: 16px; }
+        .edu-badge {
+            display: inline-block; background: rgba(255, 2, 141, 0.1);
+            border: 1px solid var(--border-highlight); color: var(--primary);
+            padding: 4px 12px; border-radius: 20px; font-size: 0.78rem; font-weight: 600;
+        }
+
+        /* Skills */
+        .skills-categories { display: flex; flex-direction: column; gap: 44px; }
+
+        .skill-group-title {
+            font-size: 1.15rem; font-weight: 700; color: #e2e8f0;
+            margin-bottom: 22px; display: flex; align-items: center; gap: 10px;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 12px;
+        }
+
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(125px, 1fr)); gap: 18px; }
+
+        .skill-card-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px 12px;
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            gap: 12px; transition: var(--transition);
+        }
+        .skill-card-item:hover {
+            background: var(--bg-card-hover); border-color: var(--border-highlight);
+            transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .skills-card-img { width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
+        .skill-icon-fa { font-size: 2rem; color: var(--primary); }
+        .skills-card-name { font-size: 0.85rem; font-weight: 600; color: var(--text-main); text-align: center; }
+
+        .badge-row { display: flex; flex-wrap: wrap; gap: 12px; }
+        .soft-skill-badge, .lang-badge {
+            display: inline-flex; align-items: center; gap: 10px;
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            padding: 14px 22px; border-radius: var(--radius-md);
+            font-size: 0.92rem; font-weight: 600; color: var(--text-main);
+            transition: var(--transition);
+        }
+        .soft-skill-badge i, .lang-badge i { color: var(--primary); }
+        .soft-skill-badge:hover, .lang-badge:hover { border-color: var(--border-highlight); transform: translateY(-3px); }
+
+        /* Projects */
+        .projects-grid { display: flex; flex-direction: column; gap: 48px; }
+
+        .project-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); overflow: hidden;
+            display: grid; grid-template-columns: 1.1fr 0.9fr; transition: var(--transition);
+        }
+        .project-card:hover { border-color: var(--border-highlight); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); }
+
+        .project-card.featured-sfmc {
+            grid-template-columns: 1fr;
+            border-color: var(--border-highlight);
+            background: linear-gradient(180deg, rgba(0, 180, 216, 0.06) 0%, rgba(121, 40, 202, 0.06) 100%);
+        }
+
+        .featured-tag {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--sfmc-gradient); color: #fff;
+            padding: 6px 16px; border-radius: 20px; font-size: 0.78rem;
+            font-weight: 700; text-transform: uppercase; letter-spacing: 1px;
+            width: fit-content; margin-bottom: 16px;
+        }
+
+        .project-gallery {
+            background: rgba(15, 23, 42, 0.6); padding: 24px;
+            display: flex; flex-direction: column; gap: 16px;
+            justify-content: center; align-items: center;
+            border-right: 1px solid var(--border-color);
+        }
+        .project-gallery img {
+            width: 100%; border-radius: var(--radius-sm); border: 1px solid var(--border-color);
+            object-fit: cover; max-height: 220px; transition: var(--transition);
+        }
+        .project-gallery img:hover { transform: scale(1.02); }
+
+        .project-info { padding: 36px; display: flex; flex-direction: column; justify-content: space-between; }
+        .project-header-box { display: flex; flex-direction: column; gap: 12px; }
+        .project-title { font-size: 1.7rem; font-weight: 700; color: #fff; line-height: 1.3; }
+        .project-description { color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; }
+
+        .project-meta-box { margin: 20px 0; display: flex; flex-direction: column; gap: 10px; }
+        .project-tech-stack {
+            font-size: 0.85rem; color: #cbd5e1; font-weight: 500;
+            background: rgba(255, 255, 255, 0.04); border: 1px solid var(--border-color);
+            padding: 8px 14px; border-radius: var(--radius-sm);
+        }
+        .project-team-note { font-size: 0.85rem; color: #a855f7; font-style: italic; }
+
+        .sfmc-desc-list {
+            list-style: none; display: flex; flex-direction: column; gap: 10px; margin: 20px 0;
+        }
+        .sfmc-desc-list li {
+            font-size: 0.92rem; color: var(--text-muted); display: flex; gap: 10px; line-height: 1.6;
+        }
+        .sfmc-desc-list li i { color: #00b4d8; margin-top: 4px; font-size: 0.75rem; flex-shrink: 0; }
+
+        .project-links { display: flex; align-items: center; gap: 16px; margin-top: 10px; flex-wrap: wrap; }
+
+        .project-deployed-link, .project-github-link {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 10px 20px; border-radius: 20px; font-size: 0.9rem; font-weight: 600;
+            transition: var(--transition);
+        }
+        .project-deployed-link { background: var(--primary-gradient); color: #fff; box-shadow: 0 4px 12px var(--primary-glow); }
+        .project-deployed-link:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255, 2, 141, 0.5); }
+        .project-github-link { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border-color); color: var(--text-main); }
+        .project-github-link:hover { background: rgba(255, 255, 255, 0.1); transform: translateY(-2px); }
+
+        .case-study-note {
+            font-size: 0.85rem; color: var(--text-muted); font-style: italic;
+            border-left: 2px solid #00b4d8; padding-left: 14px; margin-top: 16px;
+        }
+
+        /* GitHub Stats */
+        #github-sec { background: rgba(15, 23, 42, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
+        .github-cards-container { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .gitstatic { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; width: 100%; }
+        .gitstatic img, #github-top-langs {
+            max-width: 100%; height: auto; border-radius: var(--radius-md);
+            border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: var(--transition);
+        }
+        .gitstatic img:hover, #github-top-langs:hover { transform: translateY(-4px); border-color: var(--border-highlight); }
+
+        /* Contact */
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
+
+        .contact-info-card {
+            background: var(--bg-card); border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg); padding: 40px;
+            display: flex; flex-direction: column; gap: 22px;
+        }
+
+        .contact-item {
+            display: flex; align-items: center; gap: 20px; padding: 16px;
+            background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-color);
+            border-radius: var(--radius-md); transition: var(--transition); color: var(--text-main);
+        }
+        .contact-item:hover { border-color: var(--border-highlight); background: rgba(255, 2, 141, 0.05); transform: translateX(5px); }
+
+        .contact-icon-box {
+            width: 46px; height: 46px; border-radius: var(--radius-sm);
+            background: rgba(255, 255, 255, 0.05); display: flex; align-items: center; justify-content: center;
+            overflow: hidden; padding: 10px; flex-shrink: 0;
+        }
+        .contact-icon-box img { width: 100%; height: 100%; object-fit: contain; }
+        .contact-icon-box i { font-size: 1.3rem; color: var(--primary); }
+
+        .contact-detail span { display: block; font-size: 0.78rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; }
+        .contact-detail strong { font-size: 0.98rem; color: #fff; font-weight: 600; }
+
+        .contact-form-container { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-lg); padding: 40px; }
+        .modern-form { display: flex; flex-direction: column; gap: 20px; }
+        .form-group { display: flex; flex-direction: column; gap: 8px; }
+        .form-group label { font-size: 0.9rem; font-weight: 600; color: #cbd5e1; }
+        .form-input {
+            width: 100%; background: rgba(15, 23, 42, 0.6); border: 1px solid var(--border-color);
+            border-radius: var(--radius-sm); padding: 14px 18px; color: #fff; font-size: 0.95rem; transition: var(--transition);
+        }
+        .form-input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(255, 2, 141, 0.15); }
+        textarea.form-input { min-height: 120px; resize: vertical; }
+
+        /* Footer */
+        footer { background: #060911; border-top: 1px solid var(--border-color); padding: 40px 0; text-align: center; }
+        .footer-content { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .footer-logo { font-weight: 800; font-size: 1.4rem; color: #fff; }
+        .footer-copy { font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.8rem; }
+            .about-highlights-row { grid-template-columns: repeat(2, 1fr); }
+            .project-card { grid-template-columns: 1fr; }
+            .project-gallery { border-right: none; border-bottom: 1px solid var(--border-color); }
+            .contact-wrapper { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            #menu-icon { display: flex; }
+            #nav-menu {
+                position: fixed; top: 78px; left: -100%; width: 100%; height: calc(100vh - 78px);
+                background: rgba(9, 13, 22, 0.98); backdrop-filter: blur(20px);
+                flex-direction: column; justify-content: flex-start; padding: 40px 24px; gap: 24px;
+                transition: var(--transition); border-top: 1px solid var(--border-color);
+            }
+            #nav-menu.open { left: 0; }
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 50px; }
+            .hero-text-container { align-items: center; }
+            .hero-subtitle, .hero-quick-info, .hero-actions { justify-content: center; }
+            .timeline { padding-left: 30px; }
+            .timeline-dot { left: -30px; }
+            .section-title { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title { font-size: 2.1rem; }
+            .hero-img-wrapper { width: 240px; height: 300px; }
+            .about-highlights-row { grid-template-columns: 1fr; }
+            .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
 </head>
 
 <body>
 
-
-    <!-- ***********************Header****************************** -->
-
-  <header>
-    <a href="#" class="logo"><h2> <span style="color: #ff028d;">Gautam Singh</span></h2></a>
-
-    <ul id="nav-menu" class="navbar">
-      <li><a href="#" class="active nav-link home">Home</a></li>
-
-      <li><a href="#about" class="nav-link about section">About</a></li>
-
-      <li><a href="#skills-sec" class="nav-link skills">Skills</a></li>
-
-      <li><a href="#projects-sec" class="nav-link projects">Projects</a></li>
-
-      <li><a href="#contact" class="nav-link contact">Contact</a></li>
-
-      <li> <button onclick="resume()" style="border:none; background-color: white;" id="resume-button-1" >
-
-        <a href="/Gautam-Singh-Resume1.pdf" target="_blank" style="color: black;" class="nav-link resume"  id="resume-link-1" download>Resume</a>
-      </button>
-      </li>
-    </ul>
-    
-    <a href="#" class="logo bx bx-menu" id="menu-icon"><span class="material-symbols-outlined">menu</span></a>
-  </header>
-
-
-<!-- ******************************************details***************************************************** -->
-
-
-  <div class="main-container">
-    <section id="home" class="margin-t-b main-body">
-      <div></div>
-      <div id="user-detail-name" class="home-text">
-        <p >Hello, I’m</p>
-        <h1>Gautam Singh</h1>
-        <p style="color: white;" class="node">Full Stack Web Developer👩‍💻</p>
-        <div class="home-links">
-          <div class="resume" >
-            <button onclick="resume()" style="border: none;" id="resume-button-2" >
-              <a id="resume-link-2"  href="/Gautam-Singh-Resume1.pdf" target="_blank" class="trigger" download>Download Resume 🔃</a>
-            </button>
-          </div>
-          <div class="home-social">
-            <a href="https://github.com/Gautam8014" id="contact-github" target="_blank">
-              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5wJDTSaug_z6R_9N2yw9GekcRrkD3A438B8pbDW_PQEzix-SxT16LqvR7unzD4EOwfw&usqp=CAU" alt="">
+    <!-- Header Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <span>Gautam<span class="logo-accent">.Singh</span></span>
             </a>
 
-            <a href="https://www.linkedin.com/in/gautam-singh-59228a25a/" id="contact-linkedin" target="_blank">
-              <img src="https://icons-for-free.com/download-icon-linked+linkedin+social+icon-1320191444164630362_0.svg" alt="">
-            </a>
-          </div>
-        
-        </div>
-  
-      </div>
-  
-    </section>
+            <ul id="nav-menu">
+                <li><a href="#" class="active nav-link home">Home</a></li>
+                <li><a href="#about" class="nav-link about">About</a></li>
+                <li><a href="#skills-sec" class="nav-link skills">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#projects-sec" class="nav-link projects">Projects</a></li>
+                <li><a href="#contact" class="nav-link contact">Contact</a></li>
+                <li>
+                    <button onclick="resume()" class="nav-btn" id="resume-button-1">
+                        <a href="/Gautam-Singh-Resume1.pdf" target="_blank" class="nav-link resume resume-btn" id="resume-link-1" download>
+                            <span>Resume</span>
+                            <i class="fa-solid fa-download fa-sm"></i>
+                        </a>
+                    </button>
+                </li>
+            </ul>
 
-
-<!-- **********************************About**************************************************** -->
-
-
-    <section id="about" class="about section">
-        <div><img src="/IMG1.jpg" class="home-img" alt="Gautam">
-        </div>
-        <div>
-          <h1>About Me</h1>
-          <p id="user-detail-intro">I am a graduate skilled in the MERN stack (MongoDB, Express.js, React, Node.js) for Full Stack Web Development. My expertise extends to React, Redux, Chakra UI, and core Java on the frontend, and MongoDB, Express.js, and Node.js on the backend. I employ JWT-based authentication and bcrypt to ensure secure user-focused applications. Through project experiences, I've honed my attention to detail and a collaborative mindset. I'm enthusiastic about leveraging my diverse skill set in the realm of web development.
-            </p>
-        </div>
-      </section>
-
-
-
-<!-- ******************************************skills********************************************************** -->
-
-
-
-      <section id="skills-sec">
-    </section>
-    
-    <section id="skills" >
-      <h1 >Technical Skills</h1>
-      <div class="skills-card">
-        <div class="container grid" id="tech">
-        <div> 
-          <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207"><p class="skills-card-name">React</p>
-        </div>
-        <div> 
-          <img class="skills-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8F3wGLb1CSz-7kuoUD9vrzGb-BDNrDwGLVPb61mjo9zcf2YsYGcOlFq--zxbdN0jmocg&usqp=CAU"><p class="skills-card-name">Redux</p>
-        </div>
-        <div> 
-          <img class="skills-card-img" src="data:image/jpeg;base64,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" alt="HTML"><p class="skills-card-name">Chakra</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://w7.pngwing.com/pngs/429/921/png-transparent-mongodb-plain-wordmark-logo-icon.png" alt="MongoDB"><p class="skills-card-name">MongoDB</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://www.tgcindia.com/wp-content/uploads/2023/01/express-logo-1.png" alt="Expressjs"><p class="skills-card-name">Express.js</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="Node.js"><p class="skills-card-name">Node.js</p>
-        </div>
-        
-        <div> 
-          <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/800px-HTML5_Badge.svg.png" alt="HTML"><p class="skills-card-name">HTML</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://camo.githubusercontent.com/edc736634dd35b0f4008e2f7db456136b9fc0e1e7a4078bb72c7352b1bdf8a7e/68747470733a2f2f776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f6373732d332e737667"><p class="skills-card-name">CSS</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript"><p class="skills-card-name">JavaScript</p>
-        </div>
-        
-        <div>
-          <img class="skills-card-img" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Node.js"><p class="skills-card-name">JAVA</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://seeklogo.com/images/P/postman-logo-F43375A2EB-seeklogo.com.png" alt="postman"><p class="skills-card-name">Postman</p>
-        </div>
-        <div>
-          <img class="skills-card-img" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub"><p class="skills-card-name">GitHub</p>
-        </div>
-        <div> 
-          <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code"><p class="skills-card-name">VS Code</p>
-        </div>
-      </div>
-    </section>
-
-
-
-<!-- *****************************************projects************************************************************** -->
-
-
-
-    <section id="projects-sec">
-    </section>
-    <section id="projects">
-      <h1>Projects</h1>
-      <div class="all-projects">
-
-
-      
-
-
-
-         <div class="project-card">
-            <div>
-              <img src="/fitapp.png" alt="">
-              <img src="/fitapp2.png" alt="">
+            <div id="menu-icon">
+                <span class="material-symbols-outlined">menu</span>
             </div>
-            <div>
-              <h1 class="project-title" >HerofitApp
-</h1>
-    
-              <p class="project-description">About
-HeroFit is a fitness app that provides subscription services for various gym franchises. Users can sign up and log in to access the app's features. One standout feature is the built-in music player, allowing users to listen to music while working out. The app offers different subscription durations of 3, 6, 9, and 12 months.</p>
-    
-              <h5  class="project-tech-stack" >Features: Login | Signin | Add to Cart | Add to Wishlist | Contact Us</h5>
-              <h5  class="project-tech-stack" >Tech Stack: MongoDB | Express.js | React |  Node.js | CSS | Chakra-UI</h5>
-              <p>Managed a two-person team to successfully wrap up the project in just four days, demonstrating strong leadership and seamless teamwork.</p>
-              <div>
-                <a href="https://herofit.netlify.app/" target="_blank" class="project-deployed-link">Live &nbsp;<i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
-                <a href="https://github.com/Gautam8014/HerofitApp" target="_blank" class="project-github-link" >Code &nbsp;<i
-                  class="fa-brands fa-github"></i></a>
-              </div>
-            </div>
-         </div>
-          
-
-        <div class="project-card">
-          <div>
-           
-            <img src="/1mg/Screenshot (48).png" alt="">
-            <img src="/1mg/Screenshot (49).png" alt="">
-            
-          </div>
-          <div>
-            <h1 class="project-title" >TATA 1mg<br> Beyond what you see</h1>
-
-            <p class="project-description">Pepperfry is a top furniture e-commerce website, offering a wide range of stylish
-              and high-quality furniture products, with easy navigation, secure transactions, and
-              reliable delivery for a seamless shopping experience. As a team lead, responsbility
-              for coordinating and overseeing the activities of the team, ensuring efficient
-              collaboration, managing deadline and faciliting communication among team
-              members.</p>
-
-            <h5  class="project-tech-stack" >Features: Login | Signin | Add to Cart | Add to Wishlist | Contact Us</h5>
-            <h5  class="project-tech-stack" >Tech Stack: HTML | CSS | JavaScript</h5>
-            <p>Led a team to complete the project within five days, showcasing effective leadership and collaboration skills..</p>
-            <div>
-              <a href="https://tata-1mg-store.netlify.app/" target="_blank" class="project-deployed-link">Live &nbsp;<i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
-              <a href="https://github.com/Gautam8014/TATA-1mg-clone" target="_blank" class="project-github-link" >Code &nbsp;<i
-                class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-       </div>
-
-
-       <div class="project-card">
-        <div>
-          <img src="/travelious.png" alt="">
-          <img src="/travelious2.png" alt="">
         </div>
-        <div>
-          <h1 class="project-title" >Travelious</h1>
+    </header>
 
-          <p class="project-description">
-            
-            As part of a collaborative project for a travel organization website, my contribution
-involved setting up a server on render.com and developing key features related to
-travel, tracking, scuba diving, and paragliding. This included creating a seamless
-user experience through login and sign-up pages, implementing secure
-authentication,.</p>
+    <!-- Hero Section -->
+    <section id="home">
+        <div class="container hero-grid">
+            <div id="user-detail-name" class="hero-text-container">
+                <div class="badge-greeting">
+                    <i class="fa-solid fa-envelope-open-text"></i> Hello, I'm
+                </div>
+                <h1 class="hero-title">Gautam <span class="hero-title-name">Singh</span></h1>
+                <p class="hero-subtitle node">
+                    <i class="fa-solid fa-bolt" style="color: var(--primary); font-size: 1rem;"></i>
+                    SFMC Campaign Specialist &nbsp;|&nbsp; Full Stack Web Developer
+                </p>
+                <p class="hero-description" id="user-detail-intro">
+                    SFMC-focused email marketing professional with hands-on experience supporting Ford campaigns in Salesforce Marketing Cloud — tactical campaign deployment, personalization, data handling, email QA, responsive rendering and market-specific execution. Comfortable across Email Studio, Content Builder, Data Extensions, CloudPages, AMPscript/SSJS and campaign validation, backed by a strong technical foundation in HTML, CSS and JavaScript.
+                </p>
 
-          <h5  class="project-tech-stack" >Features:  Login | Signin | Add to Cart | Add to Wishlist | Contact Us</h5>
-          <h5  class="project-tech-stack" >Tech Stack: React | Chakra | Redux </h5>
-          
-          <div>
-            <a href="https://travelious-clone-app.vercel.app/" target="_blank" class="project-deployed-link">Live &nbsp;<i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
-            <a href="https://github.com/Gautam8014/travelious-clone" target="_blank" class="project-github-link" >Code &nbsp;<i
-              class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-     </div>
+                <div class="hero-quick-info">
+                    <span class="quick-info-pill"><i class="fa-solid fa-location-dot"></i> Bodhgaya, Bihar</span>
+                    <span class="quick-info-pill"><i class="fa-solid fa-phone"></i> +91 9507254304</span>
+                    <span class="quick-info-pill"><i class="fa-solid fa-envelope"></i> gautamsingh8014@gmail.com</span>
+                    <span class="quick-info-pill"><i class="fa-solid fa-language"></i> English | Hindi</span>
+                </div>
 
-
-
-        <div class="project-card">
-          <div>
-            <img src="/shope.com1.png" alt="">
-            <img src="/shope.com2.png" alt="">
-          </div>
-          <div>
-            <h1 class="project-title" >Shop.com</h1>
-
-            <p class="project-description">In our collaborative e-commerce project, involving a team of four members, I was
-              responsible for developing the product page. My key contribution included
-              implementing sorting, filtering, and search functionalities. I ensured that users
-              could apply both sorting and filtering options simultaneously, enhancing their
-              ability to refine their search results efficiently.</p>
-
-            <h5  class="project-tech-stack" >Features:  Login | Signin | Add to Cart | Add to Wishlist | Contact Us </h5>
-            <h5  class="project-tech-stack" >Tech Stack: HTML | CSS | JavaScript</h5>
-            <p>Completed as an individual project within a span of five days.</p>
-            <div>
-                
-              <a href="https://shopcom1.netlify.app/?fbclid=IwAR1hAb6dCdPpwGuXdyp2jm8SZdQps6ffdbX-1guXlCWnAx7uWGkgmauTX7g" target="_blank" class="project-deployed-link">Live &nbsp;<i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
-              <a href="https://github.com/Gautam8014/Project-Shop.com" target="_blank" class="project-github-link" >Code &nbsp;<i
-                class="fa-brands fa-github"></i></a>
-            </div>
-          </div>
-       </div> 
-
-
-       <div class="project-card">
-        <div>
-          <img src="/weatherApp.png" alt="">
-        </div>
-        <div>
-          <h1 class="project-title" >Weather App</h1>
-
-          <p class="project-description">The Weather App is a simple and easy-to-use app that allows you to check the weather for any city in the world. Simply enter the city name or country code into the search bar and click on the search icon. The app will then display the current weather conditions, as well as a forecast for the next 5 days. The Weather App is the perfect way to stay up-to-date on the latest weather conditions. Whether you're planning a trip or just want to know what the weather will be like tomorrow,</p>
-
-          <h5  class="project-tech-stack" >Features: Hourly weather | Forecast Minutely weather | Forecast Weather | Radar Storm alerts | Air quality index | UV index</h5>
-          <h5  class="project-tech-stack" >Tech Stack: HTML | CSS | JavaScript</h5>
-          
-          <div>
-            <a href="https://649da5ea8e3ccb00a50b30d7--sunny-tulumba-d1fffc.netlify.app/" target="_blank" class="project-deployed-link">Live &nbsp;<i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i></a>
-            <a href="https://github.com/Gautam8014/weatherApp" target="_blank" class="project-github-link" >Code &nbsp;<i
-              class="fa-brands fa-github"></i></a>
-          </div>
-        </div>
-     </div>
-    </section>
-
-
-
-    <!-- ************************************github***************************************************************** -->
-
-
-
-    <section id="github-sec">
-        <div class="github react-activity-calendar">
-          <h1>GitHub Statistics</h1>
-           <div>
-              <!-- <script src="https://unpkg.com/github-calendar@latest/dist/github-calendar.min.js"></script>
-              <link rel="stylesheet" href="https://unpkg.com/github-calendar@latest/dist/github-calendar-responsive.css"/>
-              <div class="calendar react-activity-calenda">
-              </div>  -->
-              <div class="gitstatic" >
-                
-                <a href="https://github.com/Gautam8014" target="_blank"><img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=Gautam8014&show_icons=true&theme=gotham"></a>
-                  
-                <a href="https://github.com/Gautam8014" target="_blank"><img  id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=Gautam8014&theme=gotham&hide_border=false"></a>
-              </div>
-              <div>
-                <a href="https://github.com/Gautam8014" target="_blank"><img id="github-top-langs"src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gautam8014&layout=compact&theme=gotham"></a>
-              </div>
-             
-
-                  
-          </div>
-         </div>
-      </section>
-
-
-
-<!-- *********************************************contacts****************************************************** -->
-
-
-
-     <section id="contact" class="contact-section tag">
-      <h2 style="color: white;" class="section-title">Contact</h2>
-      <div>
-             <div id="contact-link" class="contact-link">
-                  
-                    <div>
-                           <a target="_blank" id="contact-github"
-                                  href="https://github.com/Gautam8014"><img
-                                         src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
-                                         alt=""><span>Github</span></a>
-
-                           <a target="_blank" id="contact-linkedin"
-                                  href="https://www.linkedin.com/in/gautam-singh-59228a25a/"><img
-                                         src="https://www.iconpacks.net/icons/1/free-linkedin-icon-112-thumb.png"
-                                         alt=""><span>LinkedIn</span></a>
-
-                           <!-- <a target="_blank" id="contact-phone" href="tel:+917004356049"><img
-                                         src="https://cdn-icons-png.flaticon.com/512/220/220802.png" alt=""><span>+91
-                                         fonenumber</span></a> -->
-
-                            <a target="_blank" id="contact-phone" href="tel:+917004356049"><img
-                                            src="https://static.vecteezy.com/system/resources/previews/010/829/986/original/phone-icon-in-trendy-flat-style-free-png.png" alt=""><span>+91
-                                            9507254304</span></a>
-
-                           <a target="_blank" id="contact-email"
-                                  href="mailto:flt.gautam@gmail.com"><img
-                                         src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png"
-                                         alt=""><span>flt.gautam@gmail.com</span></a>
+                <div class="hero-actions">
+                    <a href="#projects-sec" class="btn-primary">
+                        <span>View Projects</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <span>Contact Me</span>
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </a>
+                    <div class="resume">
+                        <button onclick="resume()" style="border: none; background: none;" id="resume-button-2">
+                            <a id="resume-link-2" href="/Gautam-Singh-Resume1.pdf" target="_blank" class="trigger btn-secondary" download>
+                                <span>Download Resume</span>
+                                <i class="fa-solid fa-file-arrow-down"></i>
+                            </a>
+                        </button>
                     </div>
-             </div>
-      </div>
-</section>
+                </div>
 
-<script src="/script.js"></script>
+                <div class="home-social-wrapper">
+                    <a href="https://github.com/Gautam8014" id="contact-github" class="social-link-item" target="_blank" title="GitHub">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5wJDTSaug_z6R_9N2yw9GekcRrkD3A438B8pbDW_PQEzix-SxT16LqvR7unzD4EOwfw&usqp=CAU" alt="GitHub">
+                    </a>
+                    <a href="https://www.linkedin.com/in/gautam-singh-59228a25a/" id="contact-linkedin" class="social-link-item" target="_blank" title="LinkedIn">
+                        <img src="https://icons-for-free.com/download-icon-linked+linkedin+social+icon-1320191444164630362_0.svg" alt="LinkedIn">
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-img-card">
+                <div class="hero-backdrop-glow"></div>
+                <div class="hero-img-wrapper">
+                    <img src="/IMG1.jpg" class="home-img" alt="Gautam Singh">
+                </div>
+                <div class="hero-floating-badge">
+                    <i class="fa-solid fa-cloud"></i> SFMC | Ford Account @ WPP
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Profile</span>
+                <h2 class="section-title">About Me</h2>
+            </div>
+
+            <div class="about-card">
+                <p class="about-text">
+                    I'm an SFMC-focused email marketing professional currently working on the Ford account, with hands-on experience in tactical campaign deployment, personalization, data handling, email QA, responsive rendering and market-specific campaign execution across regions like Australia, New Zealand, Philippines, Thailand and Vietnam. I'm comfortable working with Email Studio, Content Builder, Data Extensions, CloudPages, AMPscript/SSJS concepts and campaign validation. I also bring a solid full-stack development background in the MERN stack (MongoDB, Express.js, React, Node.js), Redux, Chakra UI and core Java — which helps me build custom SFMC solutions like CloudPages, forms, and triggered journeys from the ground up. I combine attention to detail, a collaborative mindset and strong time management to deliver accurate, high-quality campaigns on tight deadlines.
+                </p>
+
+                <div class="about-highlights-row">
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-cloud-bolt"></i>
+                        <h4>SFMC Campaigns</h4>
+                        <p>Ford multi-market EDM execution</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-code"></i>
+                        <h4>MERN Stack</h4>
+                        <p>MongoDB, Express, React, Node</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-vial-circle-check"></i>
+                        <h4>Email QA</h4>
+                        <p>Litmus & Testi@ cross-client testing</p>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fa-solid fa-users-gear"></i>
+                        <h4>Leadership</h4>
+                        <p>Cross-team collaboration & delivery</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section id="experience">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Career Path</span>
+                <h2 class="section-title">Professional Experience</h2>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-top-row">
+                            <div>
+                                <div class="timeline-title">SFMC Campaign Manager / Email Marketing</div>
+                                <div class="timeline-role">WPP Production — Ford Account</div>
+                            </div>
+                            <span class="timeline-date-badge">May 2024 – Present</span>
+                        </div>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;"><i class="fa-solid fa-location-dot" style="color: var(--primary); margin-right: 6px;"></i>DLF Cyber Park, Gurgaon</p>
+
+                        <ul class="timeline-list">
+                            <li><i class="fa-solid fa-circle"></i>Created and deployed EDM campaigns across multiple markets, including Australia, New Zealand, Philippines, Thailand, and Vietnam, supporting multilingual campaigns.</li>
+                            <li><i class="fa-solid fa-circle"></i>Collaborated directly with market teams (AU, NZ, etc.) to understand campaign requirements and translate business needs into effective email campaigns.</li>
+                            <li><i class="fa-solid fa-circle"></i>Developed responsive HTML/CSS/AMPscript email templates, landing pages, forms, personalization, and dynamic content based on campaign requirements.</li>
+                            <li><i class="fa-solid fa-circle"></i>Built and managed linear and multi-step customer journeys, automated workflows, audience segmentation, and end-to-end campaign execution.</li>
+                            <li><i class="fa-solid fa-circle"></i>Performed email QA, cross-client rendering, and troubleshooting using Litmus and Testi@ across Outlook, Gmail, Apple Mail, and mobile devices.</li>
+                            <li><i class="fa-solid fa-circle"></i>Monitored campaign performance and prepared analytical reports and campaign insights for stakeholders.</li>
+                            <li><i class="fa-solid fa-circle"></i>Collaborated with QA, design, marketing, and technical teams to ensure accurate, high-quality, and timely campaign delivery.</li>
+                            <li><i class="fa-solid fa-circle"></i>Worked with marketing and productivity tools including Adobe Campaign, AEM, Veeva Vault, Photoshop, Dreamweaver, Jira, and Miro.</li>
+                        </ul>
+
+                        <div class="timeline-tools">
+                            <span class="tool-tag">Email Studio</span>
+                            <span class="tool-tag">Content Builder</span>
+                            <span class="tool-tag">Data Extensions</span>
+                            <span class="tool-tag">CloudPages</span>
+                            <span class="tool-tag">AMPscript</span>
+                            <span class="tool-tag">Journey Builder</span>
+                            <span class="tool-tag">Litmus / Testi@</span>
+                            <span class="tool-tag">Adobe Campaign</span>
+                            <span class="tool-tag">AEM</span>
+                            <span class="tool-tag">Veeva Vault</span>
+                            <span class="tool-tag">Jira</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Academic Background</span>
+                <h2 class="section-title">Education</h2>
+            </div>
+
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="edu-icon"><i class="fa-solid fa-laptop-code"></i></div>
+                    <h3 class="edu-degree">Full Stack Web Development</h3>
+                    <p class="edu-school">Masai School, Bengaluru</p>
+                    <p class="edu-field">Intensive full stack program covering MERN stack, DSA, and industry-driven collaborative projects.</p>
+                    <span class="edu-badge">Oct 2022 – Dec 2023</span>
+                </div>
+                <div class="education-card">
+                    <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                    <h3 class="edu-degree">B.Tech, Electronics & Communication Engineering</h3>
+                    <p class="edu-school">Punjab Technical University</p>
+                    <p class="edu-field">Core engineering fundamentals with a strong foundation in analytical and problem-solving skills.</p>
+                    <span class="edu-badge">Jul 2013 – Jul 2017</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills-sec">
+        <div id="skills" class="container">
+            <div class="section-header">
+                <span class="section-subtitle">What I Work With</span>
+                <h2 class="section-title">Skills & Tools</h2>
+            </div>
+
+            <div class="skills-card">
+                <div class="skills-categories">
+
+                    <!-- SFMC Skills -->
+                    <div class="skill-group">
+                        <div class="skill-group-title">
+                            <i class="fa-solid fa-cloud" style="color: var(--primary);"></i> Salesforce Marketing Cloud (SFMC)
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-card-item"><i class="fa-solid fa-envelope-circle-check skill-icon-fa"></i><p class="skills-card-name">Email Studio</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-layer-group skill-icon-fa"></i><p class="skills-card-name">Content Builder</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-database skill-icon-fa"></i><p class="skills-card-name">Data Extensions</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-cloud-arrow-up skill-icon-fa"></i><p class="skills-card-name">CloudPages</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-code skill-icon-fa"></i><p class="skills-card-name">AMPscript / SSJS</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-route skill-icon-fa"></i><p class="skills-card-name">Journey Builder</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-vial-circle-check skill-icon-fa"></i><p class="skills-card-name">Litmus / Testi@</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-chart-line skill-icon-fa"></i><p class="skills-card-name">Campaign Analytics</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Marketing & Design Tools -->
+                    <div class="skill-group">
+                        <div class="skill-group-title">
+                            <i class="fa-solid fa-swatchbook" style="color: var(--primary);"></i> Marketing & Productivity Tools
+                        </div>
+                        <div class="skills-grid">
+                            <div class="skill-card-item"><i class="fa-solid fa-bullhorn skill-icon-fa"></i><p class="skills-card-name">Adobe Campaign</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-object-group skill-icon-fa"></i><p class="skills-card-name">AEM</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-vault skill-icon-fa"></i><p class="skills-card-name">Veeva Vault</p></div>
+                            <div class="skill-card-item"><i class="fa-brands fa-adobe skill-icon-fa"></i><p class="skills-card-name">Photoshop</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-file-code skill-icon-fa"></i><p class="skills-card-name">Dreamweaver</p></div>
+                            <div class="skill-card-item"><i class="fa-brands fa-jira skill-icon-fa"></i><p class="skills-card-name">Jira</p></div>
+                            <div class="skill-card-item"><i class="fa-solid fa-diagram-project skill-icon-fa"></i><p class="skills-card-name">Miro</p></div>
+                        </div>
+                    </div>
+
+                    <!-- Frontend / Backend Development -->
+                    <div class="skill-group">
+                        <div class="skill-group-title">
+                            <i class="fa-solid fa-layer-group" style="color: var(--primary);"></i> Frontend, Backend & Database
+                        </div>
+                        <div class="skills-grid" id="tech">
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207" alt="React">
+                                <p class="skills-card-name">React</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8F3wGLb1CSz-7kuoUD9vrzGb-BDNrDwGLVPb61mjo9zcf2YsYGcOlFq--zxbdN0jmocg&usqp=CAU" alt="Redux">
+                                <p class="skills-card-name">Redux</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="data:image/jpeg;base64,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" alt="Chakra UI">
+                                <p class="skills-card-name">Chakra UI</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="Node.js">
+                                <p class="skills-card-name">Node.js</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://www.tgcindia.com/wp-content/uploads/2023/01/express-logo-1.png" alt="Express.js">
+                                <p class="skills-card-name">Express.js</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://w7.pngwing.com/pngs/429/921/png-transparent-mongodb-plain-wordmark-logo-icon.png" alt="MongoDB">
+                                <p class="skills-card-name">MongoDB</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/800px-HTML5_Badge.svg.png" alt="HTML">
+                                <p class="skills-card-name">HTML5</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://camo.githubusercontent.com/edc736634dd35b0f4008e2f7db456136b9fc0e1e7a4078bb72c7352b1bdf8a7e/68747470733a2f2f776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f6373732d332e737667" alt="CSS">
+                                <p class="skills-card-name">CSS3</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+                                <p class="skills-card-name">JavaScript / ES6</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Java">
+                                <p class="skills-card-name">JAVA</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <i class="fa-solid fa-diagram-project skill-icon-fa"></i>
+                                <p class="skills-card-name">Data Structures & Algorithms</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://seeklogo.com/images/P/postman-logo-F43375A2EB-seeklogo.com.png" alt="Postman">
+                                <p class="skills-card-name">Postman</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                                <p class="skills-card-name">GitHub</p>
+                            </div>
+                            <div class="skill-card-item">
+                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code">
+                                <p class="skills-card-name">VS Code</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="skill-group">
+                        <div class="skill-group-title">
+                            <i class="fa-solid fa-handshake" style="color: var(--primary);"></i> Soft Skills
+                        </div>
+                        <div class="badge-row">
+                            <span class="soft-skill-badge"><i class="fa-solid fa-crown"></i>Leadership</span>
+                            <span class="soft-skill-badge"><i class="fa-solid fa-arrows-spin"></i>Adaptability</span>
+                            <span class="soft-skill-badge"><i class="fa-solid fa-people-group"></i>Teamwork</span>
+                            <span class="soft-skill-badge"><i class="fa-solid fa-clock"></i>Time Management</span>
+                        </div>
+                    </div>
+
+                    <!-- Languages -->
+                    <div class="skill-group">
+                        <div class="skill-group-title">
+                            <i class="fa-solid fa-language" style="color: var(--primary);"></i> Languages
+                        </div>
+                        <div class="badge-row">
+                            <span class="lang-badge"><i class="fa-solid fa-comment"></i>English</span>
+                            <span class="lang-badge"><i class="fa-solid fa-comment"></i>Hindi</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects-sec">
+        <div id="projects" class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Portfolio</span>
+                <h2 class="section-title">Featured Projects</h2>
+            </div>
+
+            <div class="all-projects projects-grid">
+
+                <!-- Featured SFMC Project -->
+                <div class="project-card featured-sfmc">
+                    <div class="project-info">
+                        <span class="featured-tag"><i class="fa-solid fa-star"></i>Selected SFMC Project</span>
+                        <div class="project-header-box">
+                            <h3 class="project-title">Ford Dealership Lead Generation</h3>
+                            <p class="project-description">
+                                An end-to-end SFMC lead-generation flow built for a live Ford dealership website, connecting web forms directly to Salesforce Marketing Cloud journeys and personalized triggered emails.
+                            </p>
+                        </div>
+
+                        <ul class="sfmc-desc-list">
+                            <li><i class="fa-solid fa-circle"></i>Built a live dealership website where customers can Request a Quote or Book a Test Drive and are redirected to an SFMC CloudPage form.</li>
+                            <li><i class="fa-solid fa-circle"></i>Captured customer details such as name, selected vehicle, contact information, and inquiry type into a Data Extension.</li>
+                            <li><i class="fa-solid fa-circle"></i>Implemented an instant triggered EDM using AMPscript to personalize emails with the customer's name, selected vehicle, and submitted details.</li>
+                            <li><i class="fa-solid fa-circle"></i>Integrated CloudPages, Data Extensions, AMPscript, and triggered communications to create an end-to-end lead-generation flow.</li>
+                        </ul>
+
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Tech Stack: HTML | CSS | JavaScript | CloudPages | AMPscript | Data Extensions | Journey Builder</div>
+                        </div>
+
+                        <p class="case-study-note">
+                            <i class="fa-solid fa-circle-info" style="margin-right: 6px;"></i>Live Demo: Ford Dealership Website — Request a Quote / Test Drive
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Project: HerofitApp -->
+                <div class="project-card">
+                    <div class="project-gallery">
+                        <img src="/fitapp.png" alt="HeroFit App Overview">
+                        <img src="/fitapp2.png" alt="HeroFit App Interface">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header-box">
+                            <h3 class="project-title">HerofitApp</h3>
+                            <p class="project-description">
+                                HeroFit is a fitness app that provides subscription services for various gym franchises. Users can sign up and log in to access features including a built-in workout music player and custom subscription plans (3, 6, 9, 12 months).
+                            </p>
+                        </div>
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Features: Login | Signin | Add to Cart | Wishlist | Contact Us</div>
+                            <div class="project-tech-stack">Tech Stack: MongoDB | Express.js | React | Node.js | CSS | Chakra-UI</div>
+                            <div class="project-team-note">Managed a two-person team to successfully wrap up the project in just four days with strong leadership.</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://herofit.netlify.app/" target="_blank" class="project-deployed-link">
+                                <span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                            </a>
+                            <a href="https://github.com/Gautam8014/HerofitApp" target="_blank" class="project-github-link">
+                                <span>Code</span><i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: TATA 1mg -->
+                <div class="project-card">
+                    <div class="project-gallery">
+                        <img src="/1mg/Screenshot (48).png" alt="TATA 1mg Preview 1">
+                        <img src="/1mg/Screenshot (49).png" alt="TATA 1mg Preview 2">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header-box">
+                            <h3 class="project-title">TATA 1mg</h3>
+                            <p class="project-description">
+                                Developed a healthcare e-commerce website clone that allows users to browse and search medicines, view product details, and place orders. Led the team by coordinating tasks, managing deadlines, and ensuring smooth collaboration.
+                            </p>
+                        </div>
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Features: Login/SignUp | Admin Side | Add to Cart</div>
+                            <div class="project-tech-stack">Tech Stack: HTML | CSS | JavaScript</div>
+                            <div class="project-team-note">Led a team to complete the project within five days, showcasing effective leadership and coordination.</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://tata-1mg-store.netlify.app/" target="_blank" class="project-deployed-link">
+                                <span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                            </a>
+                            <a href="https://github.com/Gautam8014/TATA-1mg-clone" target="_blank" class="project-github-link">
+                                <span>Code</span><i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Travelious -->
+                <div class="project-card">
+                    <div class="project-gallery">
+                        <img src="/travelious.png" alt="Travelious Platform">
+                        <img src="/travelious2.png" alt="Travelious Features">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header-box">
+                            <h3 class="project-title">Travelious</h3>
+                            <p class="project-description">
+                                Developed travel, tracking, scuba diving, and paragliding features with secure login/signup authentication, and deployed the application as part of a collaborative team effort.
+                            </p>
+                        </div>
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Features: Login | Signin | Add to Cart | Add to Wishlist | Contact Us</div>
+                            <div class="project-tech-stack">Tech Stack: React | Chakra UI | Redux | React-router</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://travelious-clone-app.vercel.app/" target="_blank" class="project-deployed-link">
+                                <span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                            </a>
+                            <a href="https://github.com/Gautam8014/travelious-clone" target="_blank" class="project-github-link">
+                                <span>Code</span><i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Shop.com -->
+                <div class="project-card">
+                    <div class="project-gallery">
+                        <img src="/shope.com1.png" alt="Shop.com Screen 1">
+                        <img src="/shope.com2.png" alt="Shop.com Screen 2">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header-box">
+                            <h3 class="project-title">Shop.com</h3>
+                            <p class="project-description">
+                                E-commerce application focusing on advanced product listing, real-time simultaneous sorting, dynamic filtering, and search functionality to enhance user shopping experience.
+                            </p>
+                        </div>
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Features: Login | Signin | Add to Cart | Add to Wishlist | Contact Us</div>
+                            <div class="project-tech-stack">Tech Stack: HTML | CSS | JavaScript</div>
+                            <div class="project-team-note">Completed as an individual effort within a span of five days.</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://shopcom1.netlify.app/?fbclid=IwAR1hAb6dCdPpwGuXdyp2jm8SZdQps6ffdbX-1guXlCWnAx7uWGkgmauTX7g" target="_blank" class="project-deployed-link">
+                                <span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                            </a>
+                            <a href="https://github.com/Gautam8014/Project-Shop.com" target="_blank" class="project-github-link">
+                                <span>Code</span><i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project: Weather App -->
+                <div class="project-card">
+                    <div class="project-gallery">
+                        <img src="/weatherApp.png" alt="Weather App Interface">
+                    </div>
+                    <div class="project-info">
+                        <div class="project-header-box">
+                            <h3 class="project-title">Weather App</h3>
+                            <p class="project-description">
+                                Intuitive weather forecast application providing real-time weather metrics worldwide, including hourly and 5-day predictions, air quality indicators, storm alerts, and UV indices.
+                            </p>
+                        </div>
+                        <div class="project-meta-box">
+                            <div class="project-tech-stack">Features: Hourly weather | 5-Day Forecast | Radar Storm alerts | Air Quality | UV index</div>
+                            <div class="project-tech-stack">Tech Stack: HTML | CSS | JavaScript</div>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://649da5ea8e3ccb00a50b30d7--sunny-tulumba-d1fffc.netlify.app/" target="_blank" class="project-deployed-link">
+                                <span>Live Demo</span><i class="fa-solid fa-arrow-up-right-from-square fa-sm"></i>
+                            </a>
+                            <a href="https://github.com/Gautam8014/weatherApp" target="_blank" class="project-github-link">
+                                <span>Code</span><i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Statistics Section -->
+    <section id="github-sec">
+        <div class="container github react-activity-calendar">
+            <div class="section-header">
+                <span class="section-subtitle">Code Activity</span>
+                <h2 class="section-title">GitHub Statistics</h2>
+            </div>
+
+            <div class="github-cards-container">
+                <div class="gitstatic">
+                    <a href="https://github.com/Gautam8014" target="_blank">
+                        <img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=Gautam8014&show_icons=true&theme=gotham" alt="GitHub Stats">
+                    </a>
+                    <a href="https://github.com/Gautam8014" target="_blank">
+                        <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=Gautam8014&theme=gotham&hide_border=false" alt="GitHub Streak Stats">
+                    </a>
+                </div>
+                <div>
+                    <a href="https://github.com/Gautam8014" target="_blank">
+                        <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gautam8014&layout=compact&theme=gotham" alt="Top Languages">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section tag">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Contact Me</h2>
+            </div>
+
+            <div class="contact-wrapper">
+                <div id="contact-link" class="contact-info-card">
+                    <a target="_blank" id="contact-email" href="mailto:gautamsingh8014@gmail.com" class="contact-item">
+                        <div class="contact-icon-box">
+                            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-email-512.png" alt="Email">
+                        </div>
+                        <div class="contact-detail">
+                            <span>Email</span>
+                            <strong>gautamsingh8014@gmail.com</strong>
+                        </div>
+                    </a>
+
+                    <a target="_blank" id="contact-phone" href="tel:+919507254304" class="contact-item">
+                        <div class="contact-icon-box">
+                            <img src="https://static.vecteezy.com/system/resources/previews/010/829/986/original/phone-icon-in-trendy-flat-style-free-png.png" alt="Phone">
+                        </div>
+                        <div class="contact-detail">
+                            <span>Phone</span>
+                            <strong>+91 9507254304</strong>
+                        </div>
+                    </a>
+
+                    <div class="contact-item" style="cursor: default;">
+                        <div class="contact-icon-box">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <div class="contact-detail">
+                            <span>Location</span>
+                            <strong>Bodhgaya, Bihar</strong>
+                        </div>
+                    </div>
+
+                    <a target="_blank" id="contact-github" href="https://github.com/Gautam8014" class="contact-item">
+                        <div class="contact-icon-box">
+                            <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+                        </div>
+                        <div class="contact-detail">
+                            <span>GitHub</span>
+                            <strong>Gautam8014</strong>
+                        </div>
+                    </a>
+
+                    <a target="_blank" id="contact-linkedin" href="https://www.linkedin.com/in/gautam-singh-59228a25a/" class="contact-item">
+                        <div class="contact-icon-box">
+                            <img src="https://www.iconpacks.net/icons/1/free-linkedin-icon-112-thumb.png" alt="LinkedIn">
+                        </div>
+                        <div class="contact-detail">
+                            <span>LinkedIn</span>
+                            <strong>Gautam Singh</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="contact-form-container">
+                    <form class="modern-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
+                        <div class="form-group">
+                            <label for="form-name">Your Name</label>
+                            <input type="text" id="form-name" class="form-input" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-email">Your Email</label>
+                            <input type="email" id="form-email" class="form-input" placeholder="Enter your email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="form-message">Message</label>
+                            <textarea id="form-message" class="form-input" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; border-radius: var(--radius-sm);">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">
+                Gautam<span style="color: var(--primary);">.Singh</span>
+            </div>
+            <p class="footer-copy">
+                &copy; <span id="current-year"></span> Gautam Singh. SFMC Campaign Specialist & Full Stack Developer.
+            </p>
+            <div class="home-social-wrapper">
+                <a href="https://github.com/Gautam8014" target="_blank" class="social-link-item" title="GitHub">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5wJDTSaug_z6R_9N2yw9GekcRrkD3A438B8pbDW_PQEzix-SxT16LqvR7unzD4EOwfw&usqp=CAU" alt="GitHub">
+                </a>
+                <a href="https://www.linkedin.com/in/gautam-singh-59228a25a/" target="_blank" class="social-link-item" title="LinkedIn">
+                    <img src="https://icons-for-free.com/download-icon-linked+linkedin+social+icon-1320191444164630362_0.svg" alt="LinkedIn">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive JavaScript -->
+    <script>
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            const icon = menuIcon.querySelector('span');
+            icon.textContent = navMenu.classList.contains('open') ? 'close' : 'menu';
+        });
+
+        document.querySelectorAll('#nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                const icon = menuIcon.querySelector('span');
+                if (icon) icon.textContent = 'menu';
+            });
+        });
+
+        const sections = document.querySelectorAll('section, header');
+        const navLinks = document.querySelectorAll('#nav-menu a.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(a => {
+                a.classList.remove('active');
+                if (current && a.getAttribute('href') === `#${current}`) {
+                    a.classList.add('active');
+                } else if (!current && a.getAttribute('href') === '#') {
+                    a.classList.add('active');
+                }
+            });
+        });
+
+        function resume() {
+            // Resume download handled via standard href download link
+        }
+    </script>
+</body>
+</html>
