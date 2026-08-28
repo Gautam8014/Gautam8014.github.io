@@ -1,4 +1,4 @@
-<html lang="en">
+<html data-type="html" data-identifier="a1f99108-e05c-466d-90a9-4c53cc427841" data-title="Gautam Singh Portfolio" data-version="4" width="1200" height="4000">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -471,6 +471,8 @@
             transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
+        a.skill-card-item { cursor: pointer; }
+
         .skills-card-img { width: 44px; height: 44px; object-fit: contain; filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3)); }
         .skill-icon-fa { font-size: 2rem; color: var(--primary); }
         .skills-card-name { font-size: 0.85rem; font-weight: 600; color: var(--text-main); text-align: center; }
@@ -560,15 +562,20 @@
             border-left: 2px solid #00b4d8; padding-left: 14px; margin-top: 16px;
         }
 
-        /* GitHub Stats */
+        /* GitHub / LeetCode Stats */
         #github-sec { background: rgba(15, 23, 42, 0.3); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
-        .github-cards-container { display: flex; flex-direction: column; gap: 24px; align-items: center; }
+        .github-cards-container { display: flex; flex-direction: column; gap: 40px; align-items: center; }
         .gitstatic { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; width: 100%; }
-        .gitstatic img, #github-top-langs {
+        .gitstatic img {
             max-width: 100%; height: auto; border-radius: var(--radius-md);
             border: 1px solid var(--border-color); box-shadow: 0 10px 30px rgba(0,0,0,0.3); transition: var(--transition);
         }
-        .gitstatic img:hover, #github-top-langs:hover { transform: translateY(-4px); border-color: var(--border-highlight); }
+        .gitstatic img:hover { transform: translateY(-4px); border-color: var(--border-highlight); }
+        .stat-block-label {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            margin-bottom: 20px; font-size: 1.1rem; font-weight: 700; color: #e2e8f0;
+        }
+        .stat-block-label img { width: 26px; height: 26px; object-fit: contain; }
 
         /* Contact */
         .contact-wrapper { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; }
@@ -655,7 +662,7 @@
     <header>
         <div class="container header-content">
             <a href="#" class="logo">
-                <span>Gautam<span class="logo-accent">.Singh</span></span>
+                <span>Gautam<span class="logo-accent"> Singh</span></span>
             </a>
 
             <ul id="nav-menu">
@@ -667,8 +674,8 @@
                 <li><a href="#projects-sec" class="nav-link projects">Projects</a></li>
                 <li><a href="#contact" class="nav-link contact">Contact</a></li>
                 <li>
-                    <button onclick="resume()" class="nav-btn" id="resume-button-1">
-                        <a href="/Gautam-Singh-Resume1.pdf" target="_blank" class="nav-link resume resume-btn" id="resume-link-1" download>
+                    <button class="nav-btn" id="resume-button-1">
+                        <a href="/Gautam-Singh-Resume.pdf" target="_blank" class="nav-link resume resume-btn" id="resume-link-1" download>
                             <span>Resume</span>
                             <i class="fa-solid fa-download fa-sm"></i>
                         </a>
@@ -689,7 +696,7 @@
                 <div class="badge-greeting">
                     <i class="fa-solid fa-envelope-open-text"></i> Hello, I'm
                 </div>
-                <h1 class="hero-title">Gautam <span class="hero-title-name">Singh</span></h1>
+                <h1 id="hero-heading" class="hero-title">Gautam <span class="hero-title-name">Singh</span></h1>
                 <p class="hero-subtitle node">
                     <i class="fa-solid fa-bolt" style="color: var(--primary); font-size: 1rem;"></i>
                     SFMC Campaign Specialist &nbsp;|&nbsp; Full Stack Web Developer
@@ -715,8 +722,8 @@
                         <i class="fa-solid fa-paper-plane"></i>
                     </a>
                     <div class="resume">
-                        <button onclick="resume()" style="border: none; background: none;" id="resume-button-2">
-                            <a id="resume-link-2" href="/Gautam-Singh-Resume1.pdf" target="_blank" class="trigger btn-secondary" download>
+                        <button style="border: none; background: none;" id="resume-button-2">
+                            <a id="resume-link-2" href="/Gautam-Singh-Resume.pdf" target="_blank" class="trigger btn-secondary" download>
                                 <span>Download Resume</span>
                                 <i class="fa-solid fa-file-arrow-down"></i>
                             </a>
@@ -729,7 +736,10 @@
                         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5wJDTSaug_z6R_9N2yw9GekcRrkD3A438B8pbDW_PQEzix-SxT16LqvR7unzD4EOwfw&usqp=CAU" alt="GitHub">
                     </a>
                     <a href="https://www.linkedin.com/in/gautam-singh-59228a25a/" id="contact-linkedin" class="social-link-item" target="_blank" title="LinkedIn">
-                        <img src="https://icons-for-free.com/download-icon-linked+linkedin+social+icon-1320191444164630362_0.svg" alt="LinkedIn">
+                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAACUCAMAAACtIJvYAAAAdVBMVEUKZsL///8AXsCFpdnh6fUsbcQAW7+YtuCJotcAWb4AV76sv+MAZMEAYMB3mdUAYsGwxebN2u4AVL3v9PrX4fLC0Or3+v2kuuFOf8sYasNajM/I1u22yuhsk9IAT7vp7/hehc04dcd5ntZQhc2Rrt05e8kARrkMDQkxAAAE2ElEQVR4nO2ca5uyIBCG0RSXgjAPWWoHzd7//xNftcNqILVUDh98Pq7m3peDwzAMg6xBrQ9R5ife7PPyEj+LDuvhf42GLsTlsaCEYGx/XhgTQotjGf+JKox3QcAopeh7qp/OgmAXhy9Srb0zZt8E6qAxXHgSSwpUYYLJOEhXMIIT4X09Uq0KPCZTy4WLlZIqLIOxmVquoAyHqaINBmBqhDfREFWGORAUQhxnciqfQ1jvJsp9GVUOMqQ6WEEuUuUjuSgFFssfqaI5NFTztqI+lVPAQ9VYhdOjOtnQRK3sU5cqmUPzXBUsfqmcrQn2a0S3zp1qZ4b9Gtm7G5Wzh2bpaO9cqXYMGqUjtrtQRciUUdWIoqilmkEFCnLhWUs1epinFiUNVRxAczwoiGuqH5PGeiP2Y6FwY5YBaxNuQmSOX7+p9u8oez4FUhsTPKKd5xlaPPMLjLhlklQpG+1bxQs0U8+B1C5voZg/1grInqFUaRq+7WQowtk4q2qWorPqH/Hi0F2mWckoo4uekaugaueknqoxjEgL5eV5Yj0K3o9QV0zixOCxNK4EKOsAvhjisgzhDi4X0YpuH8d6O96BY3zqOhIqz0gq8HdFMwlVCR2OYdFdWfDhGN+I/iqDX3oEoglP0AZsxvtjJjw3YenB0j5UBD8NNsKnbigTA6dO72LuPbUbLuHH1E10bs/iVbTyT4E5UKjZZ5kzjufAs/KkSZMMUe0SRHWcFlNebQI0hkn9R4xt/rH9frpNfEH572qCHyVX71iUce6ms/oRi6QqT1vK7I94POr2l/MXefcAi/1IrpLrbwO3zHsB9iGuTsEHouuB1cQLVNQufEn1xDpasrdnLW0qeysJrS+Klu+GHbpUOJVZ/iZ/+97w0qQKJHmA3uty37KiFhVmg9b7xXrHiFpU/568qUard/a4daiqVPybqOQND6H1rmQ/EbRWpj0/T/WiMv0F3BeprI32d/hNKl97ZH2TytH2Dt+kso66Hv6rVAmBoFo70WoVDfsJR/crfIPKKY8uxTZyj97AHaFucKpNdUj3lxJYSjnhufSetW4iTJfKKbqfPSWy7Kp+flWTKkT9z4si6ejyNFOZmlTCNiguZbc93cP9KJUjbgT/k92Xj2pBSX0L8SX3xaN+g5LMKVtK7ss0XYMWVSQphaVHSbH4SrOSSYvKlwwXepYsenTT0VpUsuBX+qBRqWTlEeKmuqUfy2hRSV02h6aS5uTZY62/EVR4opqoJqqJaqKaqCaqiWqimqgmqolqopqoJqoPUw3Xq4NR0UJxmgOO6qw4+QJGxVLFKSGdOpnXqQ7DVPZMcaKKbquFIL9TU5TmYs3RSbbvxyQPqoYzkHihOn1GMRHUrbDiYv0VkW9GSh6kODU2zww9qQdfRv+o5lSjmSdADT0ta+bJYkNPYUdf7ZL0V91OrJt5ut/QTghGdY1odzjRk/l7ZF3jFMO6kcw73UgM7dxiOYUJhzX4Q5cbMzsCGdE9iQvdk2qsPXCnqb2k01SNBTrzUNopiep2MFsRuKmHke6Ko9ftzQHs9tZb5Qmd8SA8BFd2xmuseAboInhWdxGstV6M3nFx8bTjojV2d8rzS90p2+FlYCfPi9qup/Wa9ytdT5ul85+7nl4teYiyPPGqjzeIrbwkV3eI/Q8Njmnv+TfHMgAAAABJRU5ErkJggg==" alt="LinkedIn">
+                    </a>
+                    <a href="https://leetcode.com/u/GautamSingh8014/" id="contact-leetcode" class="social-link-item" target="_blank" title="LeetCode">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/leetcode.png" alt="LeetCode">
                     </a>
                 </div>
             </div>
@@ -737,7 +747,7 @@
             <div class="hero-img-card">
                 <div class="hero-backdrop-glow"></div>
                 <div class="hero-img-wrapper">
-                    <img src="/IMG1.jpg" class="home-img" alt="Gautam Singh">
+                    <img src="/IMG1.png" class="home-img" alt="Gautam Singh">
                 </div>
                 <div class="hero-floating-badge">
                     <i class="fa-solid fa-cloud"></i> SFMC | Ford Account @ WPP
@@ -751,7 +761,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Profile</span>
-                <h2 class="section-title">About Me</h2>
+                <h2 id="about-heading" class="section-title">About Me</h2>
             </div>
 
             <div class="about-card">
@@ -790,7 +800,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Career Path</span>
-                <h2 class="section-title">Professional Experience</h2>
+                <h2 id="experience-heading" class="section-title">Professional Experience</h2>
             </div>
 
             <div class="timeline">
@@ -841,20 +851,20 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Academic Background</span>
-                <h2 class="section-title">Education</h2>
+                <h2 id="education-heading" class="section-title">Education</h2>
             </div>
 
             <div class="education-grid">
                 <div class="education-card">
                     <div class="edu-icon"><i class="fa-solid fa-laptop-code"></i></div>
-                    <h3 class="edu-degree">Full Stack Web Development</h3>
+                    <h3 id="edu-title-1" class="edu-degree">Full Stack Web Development</h3>
                     <p class="edu-school">Masai School, Bengaluru</p>
                     <p class="edu-field">Intensive full stack program covering MERN stack, DSA, and industry-driven collaborative projects.</p>
                     <span class="edu-badge">Oct 2022 – Dec 2023</span>
                 </div>
                 <div class="education-card">
                     <div class="edu-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                    <h3 class="edu-degree">B.Tech, Electronics & Communication Engineering</h3>
+                    <h3 id="edu-title-2" class="edu-degree">B.Tech, Electronics & Communication Engineering</h3>
                     <p class="edu-school">Punjab Technical University</p>
                     <p class="edu-field">Core engineering fundamentals with a strong foundation in analytical and problem-solving skills.</p>
                     <span class="edu-badge">Jul 2013 – Jul 2017</span>
@@ -868,7 +878,7 @@
         <div id="skills" class="container">
             <div class="section-header">
                 <span class="section-subtitle">What I Work With</span>
-                <h2 class="section-title">Skills & Tools</h2>
+                <h2 id="skills-heading" class="section-title">Skills & Tools</h2>
             </div>
 
             <div class="skills-card">
@@ -914,59 +924,59 @@
                         </div>
                         <div class="skills-grid" id="tech">
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png?20220125121207" alt="React">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React">
                                 <p class="skills-card-name">React</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8F3wGLb1CSz-7kuoUD9vrzGb-BDNrDwGLVPb61mjo9zcf2YsYGcOlFq--zxbdN0jmocg&usqp=CAU" alt="Redux">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" alt="Redux">
                                 <p class="skills-card-name">Redux</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="data:image/jpeg;base64,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" alt="Chakra UI">
+                                <img class="skills-card-img" src="https://cdn.simpleicons.org/chakraui/00d9c0" alt="Chakra UI">
                                 <p class="skills-card-name">Chakra UI</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://seeklogo.com/images/N/nodejs-logo-FBE122E377-seeklogo.com.png" alt="Node.js">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js">
                                 <p class="skills-card-name">Node.js</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://www.tgcindia.com/wp-content/uploads/2023/01/express-logo-1.png" alt="Express.js">
+                                <img class="skills-card-img" src="https://cdn.simpleicons.org/express/ffffff" alt="Express.js">
                                 <p class="skills-card-name">Express.js</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://w7.pngwing.com/pngs/429/921/png-transparent-mongodb-plain-wordmark-logo-icon.png" alt="MongoDB">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB">
                                 <p class="skills-card-name">MongoDB</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/38/HTML5_Badge.svg/800px-HTML5_Badge.svg.png" alt="HTML">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML">
                                 <p class="skills-card-name">HTML5</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://camo.githubusercontent.com/edc736634dd35b0f4008e2f7db456136b9fc0e1e7a4078bb72c7352b1bdf8a7e/68747470733a2f2f776f726c64766563746f726c6f676f2e636f6d2f6c6f676f732f6373732d332e737667" alt="CSS">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS">
                                 <p class="skills-card-name">CSS3</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png" alt="JavaScript">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript">
                                 <p class="skills-card-name">JavaScript / ES6</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://cdn.icon-icons.com/icons2/2415/PNG/512/java_original_wordmark_logo_icon_146459.png" alt="Java">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java">
                                 <p class="skills-card-name">JAVA</p>
                             </div>
+                            <a href="https://leetcode.com/u/GautamSingh8014/" target="_blank" class="skill-card-item">
+                                <img class="skills-card-img" src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/leetcode.png" alt="LeetCode">
+                                <p class="skills-card-name">DSA — LeetCode</p>
+                            </a>
                             <div class="skill-card-item">
-                                <i class="fa-solid fa-diagram-project skill-icon-fa"></i>
-                                <p class="skills-card-name">Data Structures & Algorithms</p>
-                            </div>
-                            <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://seeklogo.com/images/P/postman-logo-F43375A2EB-seeklogo.com.png" alt="Postman">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postman/postman-original.svg" alt="Postman">
                                 <p class="skills-card-name">Postman</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="GitHub">
+                                <img class="skills-card-img" src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub">
                                 <p class="skills-card-name">GitHub</p>
                             </div>
                             <div class="skill-card-item">
-                                <img class="skills-card-img" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Visual_Studio_Code_1.35_icon.svg/2048px-Visual_Studio_Code_1.35_icon.svg.png" alt="VS Code">
+                                <img class="skills-card-img" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/vscode/vscode-original.svg" alt="VS Code">
                                 <p class="skills-card-name">VS Code</p>
                             </div>
                         </div>
@@ -1006,7 +1016,7 @@
         <div id="projects" class="container">
             <div class="section-header">
                 <span class="section-subtitle">Portfolio</span>
-                <h2 class="section-title">Featured Projects</h2>
+                <h2 id="projects-heading" class="section-title">Featured Projects</h2>
             </div>
 
             <div class="all-projects projects-grid">
@@ -1185,27 +1195,37 @@
         </div>
     </section>
 
-    <!-- GitHub Statistics Section -->
+    <!-- GitHub / LeetCode Statistics Section -->
     <section id="github-sec">
         <div class="container github react-activity-calendar">
             <div class="section-header">
                 <span class="section-subtitle">Code Activity</span>
-                <h2 class="section-title">GitHub Statistics</h2>
+                <h2 id="github-heading" class="section-title">GitHub & LeetCode Statistics</h2>
             </div>
 
             <div class="github-cards-container">
-                <div class="gitstatic">
-                    <a href="https://github.com/Gautam8014" target="_blank">
-                        <img id="github-stats-card" src="https://github-readme-stats.vercel.app/api?username=Gautam8014&show_icons=true&theme=gotham" alt="GitHub Stats">
-                    </a>
-                    <a href="https://github.com/Gautam8014" target="_blank">
-                        <img id="github-streak-stats" src="https://github-readme-streak-stats.herokuapp.com?user=Gautam8014&theme=gotham&hide_border=false" alt="GitHub Streak Stats">
-                    </a>
-                </div>
                 <div>
-                    <a href="https://github.com/Gautam8014" target="_blank">
-                        <img id="github-top-langs" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Gautam8014&layout=compact&theme=gotham" alt="Top Languages">
-                    </a>
+                    <div class="stat-block-label">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/github.png" alt="GitHub" style="filter: invert(1);">
+                        <span>GitHub Streak</span>
+                    </div>
+                    <div class="gitstatic">
+                        <a href="https://github.com/Gautam8014" target="_blank">
+                            <img id="github-streak-stats" src="https://streak-stats.demolab.com?user=Gautam8014&theme=gotham&hide_border=false" alt="GitHub Streak Stats">
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="stat-block-label">
+                        <img src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/leetcode.png" alt="LeetCode">
+                        <span>LeetCode Stats</span>
+                    </div>
+                    <div class="gitstatic">
+                        <a href="https://leetcode.com/u/GautamSingh8014/" target="_blank">
+                            <img id="leetcode-stats" src="https://leetcard.jacoblin.cool/GautamSingh8014?theme=dark&font=Karma&ext=heatmap" alt="LeetCode Stats">
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1216,7 +1236,7 @@
         <div class="container">
             <div class="section-header">
                 <span class="section-subtitle">Get In Touch</span>
-                <h2 class="section-title">Contact Me</h2>
+                <h2 id="contact-heading" class="section-title">Contact Me</h2>
             </div>
 
             <div class="contact-wrapper">
@@ -1251,7 +1271,7 @@
                         </div>
                     </div>
 
-                    <a target="_blank" id="contact-github" href="https://github.com/Gautam8014" class="contact-item">
+                    <a target="_blank" id="contact-github-link" href="https://github.com/Gautam8014" class="contact-item">
                         <div class="contact-icon-box">
                             <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
                         </div>
@@ -1261,19 +1281,29 @@
                         </div>
                     </a>
 
-                    <a target="_blank" id="contact-linkedin" href="https://www.linkedin.com/in/gautam-singh-59228a25a/" class="contact-item">
+                    <a target="_blank" id="contact-linkedin-link" href="https://www.linkedin.com/in/gautam-singh-59228a25a/" class="contact-item">
                         <div class="contact-icon-box">
-                            <img src="https://www.iconpacks.net/icons/1/free-linkedin-icon-112-thumb.png" alt="LinkedIn">
+                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAACUCAMAAACtIJvYAAAAdVBMVEUKZsL///8AXsCFpdnh6fUsbcQAW7+YtuCJotcAWb4AV76sv+MAZMEAYMB3mdUAYsGwxebN2u4AVL3v9PrX4fLC0Or3+v2kuuFOf8sYasNajM/I1u22yuhsk9IAT7vp7/hehc04dcd5ntZQhc2Rrt05e8kARrkMDQkxAAAE2ElEQVR4nO2ca5uyIBCG0RSXgjAPWWoHzd7//xNftcNqILVUDh98Pq7m3peDwzAMg6xBrQ9R5ife7PPyEj+LDuvhf42GLsTlsaCEYGx/XhgTQotjGf+JKox3QcAopeh7qp/OgmAXhy9Srb0zZt8E6qAxXHgSSwpUYYLJOEhXMIIT4X09Uq0KPCZTy4WLlZIqLIOxmVquoAyHqaINBmBqhDfREFWGORAUQhxnciqfQ1jvJsp9GVUOMqQ6WEEuUuUjuSgFFssfqaI5NFTztqI+lVPAQ9VYhdOjOtnQRK3sU5cqmUPzXBUsfqmcrQn2a0S3zp1qZ4b9Gtm7G5Wzh2bpaO9cqXYMGqUjtrtQRciUUdWIoqilmkEFCnLhWUs1epinFiUNVRxAczwoiGuqH5PGeiP2Y6FwY5YBaxNuQmSOX7+p9u8oez4FUhsTPKKd5xlaPPMLjLhlklQpG+1bxQs0U8+B1C5voZg/1grInqFUaRq+7WQowtk4q2qWorPqH/Hi0F2mWckoo4uekaugaueknqoxjEgL5eV5Yj0K3o9QV0zixOCxNK4EKOsAvhjisgzhDi4X0YpuH8d6O96BY3zqOhIqz0gq8HdFMwlVCR2OYdFdWfDhGN+I/iqDX3oEoglP0AZsxvtjJjw3YenB0j5UBD8NNsKnbigTA6dO72LuPbUbLuHH1E10bs/iVbTyT4E5UKjZZ5kzjufAs/KkSZMMUe0SRHWcFlNebQI0hkn9R4xt/rH9frpNfEH572qCHyVX71iUce6ms/oRi6QqT1vK7I94POr2l/MXefcAi/1IrpLrbwO3zHsB9iGuTsEHouuB1cQLVNQufEn1xDpasrdnLW0qeysJrS+Klu+GHbpUOJVZ/iZ/+97w0qQKJHmA3uty37KiFhVmg9b7xXrHiFpU/568qUard/a4daiqVPybqOQND6H1rmQ/EbRWpj0/T/WiMv0F3BeprI32d/hNKl97ZH2TytH2Dt+kso66Hv6rVAmBoFo70WoVDfsJR/crfIPKKY8uxTZyj97AHaFucKpNdUj3lxJYSjnhufSetW4iTJfKKbqfPSWy7Kp+flWTKkT9z4si6ejyNFOZmlTCNiguZbc93cP9KJUjbgT/k92Xj2pBSX0L8SX3xaN+g5LMKVtK7ss0XYMWVSQphaVHSbH4SrOSSYvKlwwXepYsenTT0VpUsuBX+qBRqWTlEeKmuqUfy2hRSV02h6aS5uTZY62/EVR4opqoJqqJaqKaqCaqiWqimqgmqolqopqoJqoPUw3Xq4NR0UJxmgOO6qw4+QJGxVLFKSGdOpnXqQ7DVPZMcaKKbquFIL9TU5TmYs3RSbbvxyQPqoYzkHihOn1GMRHUrbDiYv0VkW9GSh6kODU2zww9qQdfRv+o5lSjmSdADT0ta+bJYkNPYUdf7ZL0V91OrJt5ut/QTghGdY1odzjRk/l7ZF3jFMO6kcw73UgM7dxiOYUJhzX4Q5cbMzsCGdE9iQvdk2qsPXCnqb2k01SNBTrzUNopiep2MFsRuKmHke6Ko9ftzQHs9tZb5Qmd8SA8BFd2xmuseAboInhWdxGstV6M3nFx8bTjojV2d8rzS90p2+FlYCfPi9qup/Wa9ytdT5ul85+7nl4teYiyPPGqjzeIrbwkV3eI/Q8Njmnv+TfHMgAAAABJRU5ErkJggg==" alt="LinkedIn">
                         </div>
                         <div class="contact-detail">
                             <span>LinkedIn</span>
                             <strong>Gautam Singh</strong>
                         </div>
                     </a>
+
+                    <a target="_blank" id="contact-leetcode-link" href="https://leetcode.com/u/GautamSingh8014/" class="contact-item">
+                        <div class="contact-icon-box">
+                            <img src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/leetcode.png" alt="LeetCode">
+                        </div>
+                        <div class="contact-detail">
+                            <span>LeetCode</span>
+                            <strong>GautamSingh8014</strong>
+                        </div>
+                    </a>
                 </div>
 
                 <div class="contact-form-container">
-                    <form class="modern-form" onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
+                    <form class="modern-form" id="contact-form">
                         <div class="form-group">
                             <label for="form-name">Your Name</label>
                             <input type="text" id="form-name" class="form-input" placeholder="Enter your name" required>
@@ -1300,9 +1330,9 @@
     <footer>
         <div class="container footer-content">
             <div class="footer-logo">
-                Gautam<span style="color: var(--primary);">.Singh</span>
+                Gautam<span style="color: var(--primary);"> Singh</span>
             </div>
-            <p class="footer-copy">
+            <p id="footer-copy-text" class="footer-copy">
                 &copy; <span id="current-year"></span> Gautam Singh. SFMC Campaign Specialist & Full Stack Developer.
             </p>
             <div class="home-social-wrapper">
@@ -1310,7 +1340,11 @@
                     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo5wJDTSaug_z6R_9N2yw9GekcRrkD3A438B8pbDW_PQEzix-SxT16LqvR7unzD4EOwfw&usqp=CAU" alt="GitHub">
                 </a>
                 <a href="https://www.linkedin.com/in/gautam-singh-59228a25a/" target="_blank" class="social-link-item" title="LinkedIn">
-                    <img src="https://icons-for-free.com/download-icon-linked+linkedin+social+icon-1320191444164630362_0.svg" alt="LinkedIn">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJUAAACUCAMAAACtIJvYAAAAdVBMVEUKZsL///8AXsCFpdnh6fUsbcQAW7+YtuCJotcAWb4AV76sv+MAZMEAYMB3mdUAYsGwxebN2u4AVL3v9PrX4fLC0Or3+v2kuuFOf8sYasNajM/I1u22yuhsk9IAT7vp7/hehc04dcd5ntZQhc2Rrt05e8kARrkMDQkxAAAE2ElEQVR4nO2ca5uyIBCG0RSXgjAPWWoHzd7//xNftcNqILVUDh98Pq7m3peDwzAMg6xBrQ9R5ife7PPyEj+LDuvhf42GLsTlsaCEYGx/XhgTQotjGf+JKox3QcAopeh7qp/OgmAXhy9Srb0zZt8E6qAxXHgSSwpUYYLJOEhXMIIT4X09Uq0KPCZTy4WLlZIqLIOxmVquoAyHqaINBmBqhDfREFWGORAUQhxnciqfQ1jvJsp9GVUOMqQ6WEEuUuUjuSgFFssfqaI5NFTztqI+lVPAQ9VYhdOjOtnQRK3sU5cqmUPzXBUsfqmcrQn2a0S3zp1qZ4b9Gtm7G5Wzh2bpaO9cqXYMGqUjtrtQRciUUdWIoqilmkEFCnLhWUs1epinFiUNVRxAczwoiGuqH5PGeiP2Y6FwY5YBaxNuQmSOX7+p9u8oez4FUhsTPKKd5xlaPPMLjLhlklQpG+1bxQs0U8+B1C5voZg/1grInqFUaRq+7WQowtk4q2qWorPqH/Hi0F2mWckoo4uekaugaueknqoxjEgL5eV5Yj0K3o9QV0zixOCxNK4EKOsAvhjisgzhDi4X0YpuH8d6O96BY3zqOhIqz0gq8HdFMwlVCR2OYdFdWfDhGN+I/iqDX3oEoglP0AZsxvtjJjw3YenB0j5UBD8NNsKnbigTA6dO72LuPbUbLuHH1E10bs/iVbTyT4E5UKjZZ5kzjufAs/KkSZMMUe0SRHWcFlNebQI0hkn9R4xt/rH9frpNfEH572qCHyVX71iUce6ms/oRi6QqT1vK7I94POr2l/MXefcAi/1IrpLrbwO3zHsB9iGuTsEHouuB1cQLVNQufEn1xDpasrdnLW0qeysJrS+Klu+GHbpUOJVZ/iZ/+97w0qQKJHmA3uty37KiFhVmg9b7xXrHiFpU/568qUard/a4daiqVPybqOQND6H1rmQ/EbRWpj0/T/WiMv0F3BeprI32d/hNKl97ZH2TytH2Dt+kso66Hv6rVAmBoFo70WoVDfsJR/crfIPKKY8uxTZyj97AHaFucKpNdUj3lxJYSjnhufSetW4iTJfKKbqfPSWy7Kp+flWTKkT9z4si6ejyNFOZmlTCNiguZbc93cP9KJUjbgT/k92Xj2pBSX0L8SX3xaN+g5LMKVtK7ss0XYMWVSQphaVHSbH4SrOSSYvKlwwXepYsenTT0VpUsuBX+qBRqWTlEeKmuqUfy2hRSV02h6aS5uTZY62/EVR4opqoJqqJaqKaqCaqiWqimqgmqolqopqoJqoPUw3Xq4NR0UJxmgOO6qw4+QJGxVLFKSGdOpnXqQ7DVPZMcaKKbquFIL9TU5TmYs3RSbbvxyQPqoYzkHihOn1GMRHUrbDiYv0VkW9GSh6kODU2zww9qQdfRv+o5lSjmSdADT0ta+bJYkNPYUdf7ZL0V91OrJt5ut/QTghGdY1odzjRk/l7ZF3jFMO6kcw73UgM7dxiOYUJhzX4Q5cbMzsCGdE9iQvdk2qsPXCnqb2k01SNBTrzUNopiep2MFsRuKmHke6Ko9ftzQHs9tZb5Qmd8SA8BFd2xmuseAboInhWdxGstV6M3nFx8bTjojV2d8rzS90p2+FlYCfPi9qup/Wa9ytdT5ul85+7nl4teYiyPPGqjzeIrbwkV3eI/Q8Njmnv+TfHMgAAAABJRU5ErkJggg==
+                    " alt="LinkedIn">
+                </a>
+                <a href="https://leetcode.com/u/GautamSingh8014/" target="_blank" class="social-link-item" title="LeetCode">
+                    <img src="https://cdn.jsdelivr.net/npm/simple-icons-png@latest/icons/leetcode.png" alt="LeetCode">
                 </a>
             </div>
         </div>
@@ -1359,9 +1393,11 @@
             });
         });
 
-        function resume() {
-            // Resume download handled via standard href download link
-        }
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for reaching out!');
+        });
     </script>
 </body>
 </html>
